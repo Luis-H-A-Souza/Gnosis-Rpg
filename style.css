@@ -1,0 +1,438 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-image: url("img/telaInicial.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.iniciarJogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.iniciarJogo button {
+  cursor: pointer;
+  width: 500px;
+  height: 600px;
+  opacity: 0;
+}
+
+.selecaoClasse {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.bg-selecao {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.classes-container {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.classe {
+  background: rgba(34, 34, 34, 0.5);
+  border: 2px solid #333;
+  border-radius: 16px;
+  padding: 40px 40px 28px 40px; 
+  cursor: pointer;
+  text-align: center;
+  min-width: 260px;             
+  min-height: 340px;            
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; 
+  color: #fff;
+  font-size: 1.2em;
+  box-shadow: 0 2px 16px #0008;
+}
+
+.classe.selected {
+  background: rgba(34, 34, 34, 1); 
+  border: 2px solid #fff;
+  box-shadow: 0 0 24px 4px #e0e0e0, 0 2px 16px #0008;
+}
+
+.classe p {
+  margin-bottom: 18px;
+  font-size: 1.3em;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+}
+
+.classe img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  background: transparent;
+  margin-top: 12px;    
+  margin-bottom: 12px; 
+}
+
+.classe.selected img {
+  transform: scale(1.08);
+}
+
+#confirmarClasse {
+  padding: 10px 24px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 1px solid #fff;
+  margin-top: 32px;
+  align-self: center;
+}
+
+#confirmarClasse:hover:enabled {
+  background: #444;
+}
+#confirmarClasse:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.batalha {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.95);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.battle-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.battle-bg-placeholder {
+  color: #fff;
+  font-size: 2em;
+  opacity: 0.2;
+}
+
+.battle-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.battle-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.battle-player, .battle-enemy {
+    background: #222222b8;
+    border-radius: 20px;
+    padding: 32px 32px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.battle-player {
+    border: 1px solid #ffe066;
+}
+
+.battle-enemy {
+    border: 1px solid rgb(255 102 102);
+}
+
+.battle-info {
+  width: 100%;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.battle-nome {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.battle-status {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.battle-img {
+  width: 220px;         
+  height: 220px;       
+  background: transparent; 
+  border-radius: 12px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.battle-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
+.battle-img-placeholder {
+  color: #fff;
+  opacity: 0.3;
+  text-align: center;
+}
+
+.battle-acoes {
+  display: flex;
+  gap: 18px;
+  margin: 25px 0px;
+}
+
+.battle-acoes button {
+  padding: 10px 24px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 1px solid #fff;
+  font-weight: bold;
+}
+
+.battle-acoes button:hover {
+  background: #444;
+}
+
+.battle-log {
+    min-width: 220px;
+    max-width: 340px;
+    min-height: 48px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    background: rgba(34, 34, 34, 0.85);
+    border-radius: 14px;
+    color: #fff;
+    font-size: 1.15em;
+    text-align: center;
+    box-shadow: 0 2px 16px #0008;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    border: 1px solid #ff8f00;
+    font-weight: bold;
+    color: #ff8f00;
+}
+
+.turno-indicador {
+  min-width: 180px;
+  max-width: 320px;
+  min-height: 32px;
+  margin: 24px auto 24px auto;
+  padding: 10px 18px;
+  background: rgba(44,44,44,0.85);
+  border-radius: 10px;
+  color: #ffe066;
+  font-size: 1.1em;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 12px #0006;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+}
+
+.modal-vitoria {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10,10,10,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-vitoria-content {
+  background: #222;
+  border-radius: 18px;
+  box-shadow: 0 0 32px #fff8, 0 2px 16px #0008;
+  padding: 40px 32px 32px 32px;
+  text-align: center;
+  color: #fff;
+  min-width: 320px;
+}
+
+.modal-vitoria-img {
+  width: 120px;
+  margin-bottom: 18px;
+}
+
+#btn-voltar-inicio,
+#btn-voltar-inicio-derrota {
+  margin-top: 24px;
+  padding: 12px 32px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#btn-voltar-inicio:hover,
+#btn-voltar-inicio-derrota:hover {
+  background: #444;
+}
+
+.battle-players-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 60px;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.status-label {
+  font-size: 1em;
+  color: #fff;
+  min-width: 36px;
+}
+
+.bar-externa {
+  width: 110px;
+  height: 18px;
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #444;
+  margin: 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+.bar-interna {
+  height: 100%;
+  transition: width 0.3s;
+}
+
+.hp-bar {
+  background: linear-gradient(90deg, #ff4444 60%, #ff8888 100%);
+}
+
+.mana-bar {
+  background: linear-gradient(90deg, #448aff 60%, #aaddff 100%);
+}
+
+.status-value {
+  font-size: 1em;
+  color: #fff;
+  min-width: 60px;
+  text-align: right;
+}
+
+.toggle-audio {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 200;
+  background: #222;
+  color: #ffe066;
+  border: 2px solid #ffe066;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  font-size: 2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  padding: 0;
+  line-height: 1;
+}
+.toggle-audio:hover {
+  background: #ffe066;
+  color: #222;
+}

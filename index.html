@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gnosis</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Música de fundo e botão de áudio global -->
+    <audio id="musica-fundo" src="audio/temaPrincipal.mp3" loop autoplay muted></audio>
+    <button id="toggle-audio" class="toggle-audio">🔊</button>
+
+    <!-- Tela inicial com botão invisível para iniciar o jogo -->
+    <div class="iniciarJogo">
+      <button></button>
+    </div>
+
+    <!-- Seleção de classe do herói -->
+    <div class="selecaoClasse" style="display: none">
+      <img class="bg-selecao" src="img/bgSelecao.png" alt="Seleção de Classe" />
+      <div class="classes-container">
+        <!-- Card do Guerreiro -->
+        <div class="classe" data-classe="guerreiro">
+          <p>Guerreiro</p>
+          <img src="img/cavaleiro.png" alt="Guerreiro">
+        </div>
+        <!-- Card do Mago -->
+        <div class="classe" data-classe="mago">
+          <p>Mago</p>
+          <img src="img/mago.png" alt="Mago">
+        </div>
+        <!-- Card do Arqueiro -->
+        <div class="classe" data-classe="arqueiro">
+          <p>Arqueiro</p>
+          <img src="img/arqueiro.png" alt="Arqueiro">
+        </div>
+      </div>
+      <!-- Botão para confirmar seleção de classe -->
+      <button id="confirmarClasse" disabled>Confirmar</button>
+    </div>
+
+    <!-- Interface de batalha principal -->
+    <div class="batalha" style="display: none;">
+      <div class="battle-bg">
+        <img class="battle-bg-img" src="img/calaboucoMortal.png" alt="Calabouço Mortal" />
+      </div>
+      <div class="battle-content">
+        <!-- Indicador de turno -->
+        <div id="turno-indicador" class="turno-indicador"></div>
+        <div class="battle-players-row">
+          <!-- Status do jogador -->
+          <div class="battle-player">
+            <div class="battle-img"></div>
+            <div class="battle-info">
+              <span id="player-nome" class="battle-nome"></span>
+              <div class="battle-status">
+                <!-- Barra de HP do jogador -->
+                <div class="status-bar">
+                  <span class="status-label">HP</span>
+                  <div class="bar-externa">
+                    <div id="player-hp-bar" class="bar-interna hp-bar"></div>
+                  </div>
+                  <span id="player-vida-text" class="status-value"></span>
+                </div>
+                <!-- Barra de Mana do jogador -->
+                <div class="status-bar">
+                  <span class="status-label">Mana</span>
+                  <div class="bar-externa">
+                    <div id="player-mana-bar" class="bar-interna mana-bar"></div>
+                  </div>
+                  <span id="player-mana-text" class="status-value"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Status do inimigo -->
+          <div class="battle-enemy">
+            <div class="battle-img"></div>
+            <div class="battle-info">
+              <span id="enemy-nome" class="battle-nome"></span>
+              <div class="battle-status">
+                <!-- Barra de HP do inimigo -->
+                <div class="status-bar">
+                  <span class="status-label">HP</span>
+                  <div class="bar-externa">
+                    <div id="enemy-hp-bar" class="bar-interna hp-bar"></div>
+                  </div>
+                  <span id="enemy-vida-text" class="status-value"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Botões de ação do jogador -->
+        <div class="battle-acoes">
+          <button id="btn-ataque">Ataque</button>
+          <button id="btn-especial">Ataque Especial</button>
+        </div>
+        <!-- Log de batalha -->
+        <div id="battle-log" class="battle-log"></div>
+      </div>
+    </div>
+
+    <!-- Modal de vitória -->
+    <div id="modal-vitoria" class="modal-vitoria" style="display: none;">
+      <div class="modal-vitoria-content">
+        <h2>Parabéns!</h2>
+        <p>Você derrotou todos os inimigos!</p>
+        <button id="btn-voltar-inicio">Voltar ao início</button>
+      </div>
+    </div>
+    <!-- Modal de derrota -->
+    <div id="modal-derrota" class="modal-vitoria" style="display: none;">
+      <div class="modal-vitoria-content">
+        <h2>Você morreu!</h2>
+        <p>Muito Lixo, Git Gud!</p>
+        <button id="btn-voltar-inicio-derrota">Voltar ao início</button>
+      </div>
+    </div>
+
+    <!-- Áudios de efeitos e música -->
+    <audio id="audio-knight" src="audio/knightAttack.wav"></audio>
+    <audio id="audio-mage" src="audio/mageAttack.wav"></audio>
+    <audio id="audio-archer" src="audio/archerAttack.wav"></audio>
+    <audio id="audio-goblin" src="audio/goblinAttack.wav"></audio>
+    <audio id="audio-orc" src="audio/orcAttack.wav"></audio>
+    <audio id="audio-dragao" src="audio/dragonAttack.wav"></audio>
+    <audio id="audio-comecar-jogo" src="audio/comecarJogo.wav"></audio>
+    <audio id="audio-selecionar-personagem" src="audio/selecionarPersonagem.wav"></audio>
+    <audio id="audio-confirmar-personagem" src="audio/confirmarPersonagem.wav"></audio>
+    <audio id="audio-batalha" src="audio/batalha.wav" loop></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
