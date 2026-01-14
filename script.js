@@ -501,3 +501,37 @@ btnIniciar.onclick = function() {
         audio.play();
     }
 };
+
+// Função para verificar orientação e ajustar interface
+function verificarOrientacao() {
+    const isPortrait = window.innerHeight > window.innerWidth;
+    const warning = document.getElementById('portrait-warning');
+    const iniciarJogo = document.querySelector('.iniciarJogo');
+    const gameElements = document.querySelectorAll('.selecaoClasse, .batalha, .modal-vitoria, .modal-derrota');
+    const buttons = document.querySelectorAll('button:not(#toggle-audio)'); // Exclude audio toggle
+
+    if (isPortrait) {
+        // Mostrar aviso e esconder jogo
+        warning.style.display = 'flex';
+        iniciarJogo.style.display = 'none';
+        gameElements.forEach(el => el.style.display = 'none');
+        // Desabilitar botões do jogo
+        buttons.forEach(btn => btn.disabled = true);
+    } else {
+        // Esconder aviso e restaurar tela inicial
+        warning.style.display = 'none';
+        iniciarJogo.style.display = 'flex'; // Restaurar tela inicial
+        // Outros elementos permanecem ocultos até ativados pela lógica do jogo
+        // Reabilitar botões (lógica existente cuidará do estado)
+        buttons.forEach(btn => btn.disabled = false);
+    }
+}
+
+// Adicionar listeners para mudança de orientação
+window.addEventListener('orientationchange', verificarOrientacao);
+window.addEventListener('resize', verificarOrientacao); // Fallback para resize
+
+// Verificar orientação inicial
+document.addEventListener('DOMContentLoaded', function() {
+    verificarOrientacao(); // Adicionar chamada inicial
+});

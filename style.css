@@ -27,8 +27,8 @@ body {
 
 .iniciarJogo button {
   cursor: pointer;
-  width: 500px;
-  height: 600px;
+  width: 50vw; /* Changed to relative for responsiveness */
+  height: 60vh; /* Changed to relative for responsiveness */
   opacity: 0;
 }
 
@@ -58,20 +58,21 @@ body {
 
 .classes-container {
   display: flex;
-  gap: 40px;
-  margin-bottom: 30px;
+  gap: 4vw; /* Changed to relative */
+  margin-bottom: 3vh; /* Changed to relative */
   justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 .classe {
   background: rgba(34, 34, 34, 0.5);
   border: 2px solid #333;
   border-radius: 16px;
-  padding: 40px 40px 28px 40px; 
+  padding: 4vw 4vw 2.8vw 4vw; /* Changed to relative */
   cursor: pointer;
   text-align: center;
-  min-width: 260px;             
-  min-height: 340px;            
+  min-width: 26vw; /* Changed to relative */
+  min-height: 34vh; /* Changed to relative */
   transition: box-shadow 0.2s, border 0.2s, background 0.2s;
   display: flex;
   flex-direction: column;
@@ -97,8 +98,8 @@ body {
 }
 
 .classe img {
-  width: 160px;
-  height: 160px;
+  width: 16vw; /* Changed to relative */
+  height: 16vw; /* Changed to relative */
   object-fit: contain;
   border-radius: 10px;
   cursor: pointer;
@@ -113,7 +114,7 @@ body {
 }
 
 #confirmarClasse {
-  padding: 10px 24px;
+  padding: 1vh 2.4vw; /* Changed to relative */
   font-size: 1.1em;
   border-radius: 8px;
   border: none;
@@ -122,7 +123,7 @@ body {
   cursor: pointer;
   transition: background 0.2s;
   border: 1px solid #fff;
-  margin-top: 32px;
+  margin-top: 3.2vh; /* Changed to relative */
   align-self: center;
 }
 
@@ -188,7 +189,7 @@ body {
 .battle-player, .battle-enemy {
     background: #222222b8;
     border-radius: 20px;
-    padding: 32px 32px 24px 32px;
+    padding: 3.2vh 3.2vw 2.4vh 3.2vw; /* Changed to relative */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -227,8 +228,8 @@ body {
 }
 
 .battle-img {
-  width: 220px;         
-  height: 220px;       
+  width: 22vw; /* Changed to relative */
+  height: 22vw; /* Changed to relative */
   background: transparent; 
   border-radius: 12px;
   margin-bottom: 18px;
@@ -252,12 +253,12 @@ body {
 
 .battle-acoes {
   display: flex;
-  gap: 18px;
-  margin: 25px 0px;
+  gap: 1.8vw; /* Changed to relative */
+  margin: 2.5vh 0px;
 }
 
 .battle-acoes button {
-  padding: 10px 24px;
+  padding: 1vh 2.4vw; /* Changed to relative, increased for touch */
   font-size: 1.1em;
   border-radius: 8px;
   border: none;
@@ -274,11 +275,11 @@ body {
 }
 
 .battle-log {
-    min-width: 220px;
-    max-width: 340px;
-    min-height: 48px;
+    min-width: 22vw; /* Changed to relative */
+    max-width: none; /* Allow expansion to fit text */
+    min-height: 4.8vh; /* Changed to relative */
     margin: 0 auto;
-    padding: 18px 20px;
+    padding: 1.8vh 2vw; /* Changed to relative */
     background: rgba(34, 34, 34, 0.85);
     border-radius: 14px;
     color: #fff;
@@ -295,11 +296,11 @@ body {
 }
 
 .turno-indicador {
-  min-width: 180px;
-  max-width: 320px;
-  min-height: 32px;
+  min-width: 18vw; /* Changed to relative */
+  max-width: 32vw; /* Changed to relative */
+  min-height: 3.2vh; /* Changed to relative */
   margin: 24px auto 24px auto;
-  padding: 10px 18px;
+  padding: 1vh 1.8vw; /* Changed to relative */
   background: rgba(44,44,44,0.85);
   border-radius: 10px;
   color: #ffe066;
@@ -330,10 +331,10 @@ body {
   background: #222;
   border-radius: 18px;
   box-shadow: 0 0 32px #fff8, 0 2px 16px #0008;
-  padding: 40px 32px 32px 32px;
+  padding: 4vh 3.2vw 3.2vh 3.2vw; /* Changed to relative */
   text-align: center;
   color: #fff;
-  min-width: 320px;
+  min-width: 32vw; /* Changed to relative */
 }
 
 .modal-vitoria-img {
@@ -343,8 +344,8 @@ body {
 
 #btn-voltar-inicio,
 #btn-voltar-inicio-derrota {
-  margin-top: 24px;
-  padding: 12px 32px;
+  margin-top: 2.4vh; /* Changed to relative */
+  padding: 1.2vh 3.2vw; /* Changed to relative, increased for touch */
   font-size: 1.1em;
   border-radius: 8px;
   border: none;
@@ -364,7 +365,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 60px;
+    gap: 6vw; /* Changed to relative */
 }
 
 .status-bar {
@@ -381,8 +382,8 @@ body {
 }
 
 .bar-externa {
-  width: 110px;
-  height: 18px;
+  width: 11vw; /* Changed to relative */
+  height: 1.8vh; /* Changed to relative */
   background: #222;
   border-radius: 8px;
   overflow: hidden;
@@ -421,8 +422,8 @@ body {
   color: #ffe066;
   border: 2px solid #ffe066;
   border-radius: 50%;
-  width: 54px;
-  height: 54px;
+  width: 5.4vw; /* Changed to relative, min 54px for touch */
+  height: 5.4vw; /* Changed to relative, min 54px for touch */
   font-size: 2em;
   cursor: pointer;
   display: flex;
@@ -436,3 +437,94 @@ body {
   background: #ffe066;
   color: #222;
 }
+
+/* Media query for portrait orientation: show warning and hide game elements */
+@media (orientation: portrait) and (max-width: 768px) {
+  .iniciarJogo,
+  .selecaoClasse,
+  .batalha,
+  .modal-vitoria,
+  .modal-derrota {
+    display: none !important;
+  }
+  .portrait-warning {
+    display: flex !important;
+  }
+}
+
+/* Media query for landscape on mobile: ensure no overflow, proportional scaling */
+@media (orientation: landscape) and (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  .iniciarJogo button {
+    width: 80vw; /* Adjust for landscape */
+    height: 80vh;
+  }
+  .classes-container {
+    gap: 2vw;
+  }
+  .classe {
+    min-width: 20vw;
+    min-height: 50vh;
+  }
+  .battle-players-row {
+    flex-direction: column; /* Stack vertically on very small screens if needed, but keep row for landscape */
+    gap: 4vh;
+  }
+  .battle-acoes {
+    flex-direction: column; /* Stack buttons vertically for better touch */
+    gap: 2vh;
+  }
+  .battle-acoes button {
+    width: 100%; /* Full width for touch */
+    padding: 2vh 0;
+  }
+  .battle-log {
+    max-width: none; /* Allow expansion to fit text */
+    white-space: nowrap; /* Prevent wrapping to force horizontal expansion */
+    font-size: 0.8em; /* Reduce font size more for better fit */
+    line-height: 1.2; /* Improve readability on multi-line */
+  }
+}
+
+/* Portrait warning styles */
+.portrait-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  color: #fff;
+  text-align: center;
+}
+
+.portrait-warning-content {
+  padding: 5vh 5vw;
+  background: #222;
+  border-radius: 2vh;
+  box-shadow: 0 0 3vh #fff8;
+}
+
+.portrait-warning-content h2 {
+  font-size: 2em;
+  margin-bottom: 2vh;
+}
+
+.portrait-warning-content p {
+  font-size: 1.2em;
+  margin-bottom: 3vh;
+}
+
+.rotate-icon {
+  width: 10vw;
+  height: 10vw;
+  max-width: 100px;
+  max-height: 100px;
+}
+
